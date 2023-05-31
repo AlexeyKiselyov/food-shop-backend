@@ -1,6 +1,19 @@
 ## Food shop App backend
 
-### Сommand:
+## Guide:
+
+1.  Сlone the repository.
+
+2.  <a href = "https://nodejs.org/uk" target="_blank" rel="noreferrer noopener">You
+    need NODE.js.</a>
+
+3.  Write in terminal `cd food-shop-backend` to get into the current directory.
+
+4.  Write in terminal `npm i` to install all npm packages.
+
+5.  Write in terminal one of the commands below ↓.
+
+### Сommands:
 
 - `npm start` &mdash; server start in production mode production
 - `npm run start:dev` &mdash; server start in development mode
