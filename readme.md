@@ -1,4 +1,4 @@
-## Tweets test backend
+## Food shop App backend
 
 ### Команди:
 
@@ -8,3 +8,11 @@
   виконувати перед кожним PR та виправляти всі помилки лінтера
 - `npm lint:fix` &mdash; та ж перевірка лінтера, але з автоматичними
   виправленнями простих помилок
+
+---
+
+<h2 align = "center"><a href="https://food-shop-backend.cyclic.app/api/" target="_blank" rel="noreferrer noopener">
+Link to App backend</a></h2>
+
+<h2 align = "center"><a href="https://www.linkedin.com/in/olexiy-kiselyov/" target="_blank" rel="noreferrer noopener">
+Linkedin of developer</a></h2>
