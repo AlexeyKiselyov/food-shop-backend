@@ -1,0 +1,14 @@
+const mongoose = require("mongoose");
+mongoose.set('strictQuery', true);
+
+const app = require("./app");
+
+const { DB_HOST, PORT = 3000 } = process.env;
+
+mongoose
+  .connect(DB_HOST)
+  .then(() => app.listen(PORT,()=>console.log("Database connection successful")))
+  .catch((error) => {
+    console.log(error);
+    process.exit(1);
+  });
