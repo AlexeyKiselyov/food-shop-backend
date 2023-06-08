@@ -62,18 +62,22 @@ const newOrderSubSchema = new Schema({
 // --------mongoose shema------------
 const orderShema = new Schema(
   {
+    orderCategory: {
+      type: String,
+      enum: ['Потрібна доставка', 'Самовивіз'],
+      required: true,
+    },
     name: { type: String, minlength: 4, maxlength: 32, required: true },
     number: {
       type: String,
       match: [PHONE_REG_EXP, 'Будь ласка, введіть валідний телефон'],
       required: true,
     },
-    street: { type: String, required: true },
+    street: { type: String },
     house: {
       type: Number,
       min: [1],
       max: [1000],
-      required: true,
     },
     apartment: {
       type: Number,
@@ -90,12 +94,15 @@ orderShema.post('save', handleMongooseError);
 
 // --------Joi shemas--------
 const addShema = Joi.object({
+  orderCategory: Joi.string()
+    .valid('Потрібна доставка', 'Самовивіз')
+    .required("Варіант доставки є обов'язковим"),
   name: Joi.string().min(4).max(32).required("Ім'я є обов'язковим"),
   number: Joi.string()
     .pattern(PHONE_REG_EXP, 'Будь ласка, введіть валідний телефон')
     .required("Телефон є обов'язковим"),
-  street: Joi.string().required("Вулиця є обов'язковою"),
-  house: Joi.number().min(1).max(1000).required("Номер дому є обов'язковим"),
+  street: Joi.string(),
+  house: Joi.number().min(1).max(1000),
   apartment: Joi.number().min(0).max(1000),
   order: Joi.array().items(Joi.object()).required("Замовлення є обов'язковим"),
   total: Joi.object().required("Загальна сумма замовлення є обов'язковою"),
